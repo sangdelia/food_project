@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>음식 경험 공유</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    .login-box, .signup-box {
+      width: 300px;
+      padding: 30px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn {
+      width: 50%;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-login {
+      background-color: #87cefa;
+      color: white;
+      border: none;
+    }
+
+    .btn-login:hover {
+      background-color: #5ebbe6;
+    }
+
+    .btn-signup-toggle {
+      background-color: transparent;
+      color: #333;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    .btn-signup-toggle:hover {
+      background-color: #f5f5f5;
+    }
+
+    #signup-form {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 로그인 박스 -->
+  <div class="login-box">
+    <h2>로그인</h2>
+    <form action="/login" method="post">
+      <input type="text" name="id" placeholder="아이디" required>
+      <input type="password" name="password" placeholder="비밀번호" required>
+      <button class="btn btn-login" type="submit">로그인</button>
+    </form>
+    <button class="btn btn-signup-toggle" onclick="toggleSignup()">회원가입</button>
+  </div>
+
+  <!-- 회원가입 폼 -->
+  <div id="signup-form" class="signup-box">
+    <h2>회원가입</h2>
+    <form action="/signup" method="post">
+      <input type="text" name="id" placeholder="아이디" required>
+      <input type="password" name="password" placeholder="비밀번호" required>
+      <input type="text" name="nickname" placeholder="닉네임" required>
+      <button class="btn btn-login" type="submit">가입하기</button>
+    </form>
+  </div>
+
+</div>
+
+<script>
+  function toggleSignup() {
+    const form = document.getElementById('signup-form');
+    form.style.display = form.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>
